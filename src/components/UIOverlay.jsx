@@ -1,3 +1,9 @@
+const CONTACT = {
+  email: 'shivam@example.com',
+  github: 'https://github.com/shiv9060',
+  linkedin: 'https://linkedin.com/in/shivam-kumar',
+}
+
 const sections = [
   {
     id: 'intro',
@@ -230,7 +236,7 @@ const sections = [
             <div style={{ color: '#7ec8e3', marginTop: '4px' }}>$ cat contact.json</div>
             <div style={{ color: '#e0f2ff' }}>{`{`}</div>
             <div style={{ paddingLeft: '16px' }}>
-              <div><span style={{ color: '#8b5cf6' }}>"email"</span><span style={{ color: '#fff' }}>: </span><span style={{ color: '#06ffa5' }}>"shivam@example.com"</span></div>
+              <div><span style={{ color: '#8b5cf6' }}>"email"</span><span style={{ color: '#fff' }}>: </span><span style={{ color: '#06ffa5' }}>"{CONTACT.email}"</span></div>
               <div><span style={{ color: '#8b5cf6' }}>"github"</span><span style={{ color: '#fff' }}>: </span><span style={{ color: '#06ffa5' }}>"github.com/shiv9060"</span></div>
               <div><span style={{ color: '#8b5cf6' }}>"linkedin"</span><span style={{ color: '#fff' }}>: </span><span style={{ color: '#06ffa5' }}>"linkedin.com/in/shivam-kumar"</span></div>
             </div>
@@ -241,9 +247,9 @@ const sections = [
 
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           {[
-            { label: 'GitHub', color: '#e0f2ff' },
-            { label: 'LinkedIn', color: '#00d4ff' },
-            { label: 'Email Me', color: '#8b5cf6' },
+            { label: 'GitHub', color: '#e0f2ff', href: CONTACT.github },
+            { label: 'LinkedIn', color: '#00d4ff', href: CONTACT.linkedin },
+            { label: 'Email Me', color: '#8b5cf6', href: `mailto:${CONTACT.email}` },
           ].map((btn) => (
             <button key={btn.label} style={{
               padding: '10px 24px', border: `1px solid ${btn.color}60`,
@@ -253,6 +259,7 @@ const sections = [
               letterSpacing: '2px', transition: 'all 0.2s',
               backdropFilter: 'blur(10px)'
             }}
+            onClick={() => window.open(btn.href, '_blank', 'noopener,noreferrer')}
             onMouseOver={(e) => e.currentTarget.style.background = `${btn.color}20`}
             onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0,20,40,0.7)'}
             >

@@ -29,13 +29,13 @@ function CameraController() {
       if (maxScroll <= 0) return
       const progress = Math.min(scrollY / maxScroll, 1)
 
-      const numWaypoints = waypoints.length - 1
-      const segment = progress * numWaypoints
-      const idx = Math.min(Math.floor(segment), numWaypoints - 1)
+      const lastIdx = waypoints.length - 1
+      const segment = progress * lastIdx
+      const idx = Math.min(Math.floor(segment), lastIdx - 1)
       const t = segment - idx
 
       const from = waypoints[idx]
-      const to = waypoints[Math.min(idx + 1, numWaypoints)]
+      const to = waypoints[idx + 1]
 
       targetRef.current = {
         x: THREE.MathUtils.lerp(from.x, to.x, t),
