@@ -4,15 +4,14 @@ const LoadingScreen = () => {
   const [progress, setProgress] = useState(0)
   const [statusText, setStatusText] = useState('INITIALIZING SYSTEM...')
 
-  const statusMessages = [
-    'INITIALIZING SYSTEM...',
-    'LOADING CLOUD MODULES...',
-    'CONNECTING TO AWS...',
-    'DEPLOYING CONTAINERS...',
-    'SYSTEM ONLINE',
-  ]
-
   useEffect(() => {
+    const statusMessages = [
+      'INITIALIZING SYSTEM...',
+      'LOADING CLOUD MODULES...',
+      'CONNECTING TO AWS...',
+      'DEPLOYING CONTAINERS...',
+      'SYSTEM ONLINE',
+    ]
     let current = 0
     const interval = setInterval(() => {
       current += 2
