@@ -61,7 +61,7 @@ function Satellite({ position }) {
   return (
     <group position={position} ref={ref}>
       <mesh rotation={[Math.PI / 4, 0, 0]}>
-        <sphereGeometry args={[0.8, 8, 8, 0, Math.PI * 2, 0, Math.PI / 2]} />
+        <sphereGeometry args={[0.8, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
         <meshStandardMaterial color="#002244" emissive="#00d4ff" emissiveIntensity={0.4} wireframe />
       </mesh>
       <mesh>

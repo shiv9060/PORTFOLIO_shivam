@@ -20,7 +20,7 @@ function CameraController() {
   ]
 
   useEffect(() => {
-    camera.position.set(0, 3, 30)
+    camera.position.set(waypoints[0].x, waypoints[0].y, waypoints[0].z)
     camera.lookAt(0, 0, 0)
 
     const handleScroll = () => {

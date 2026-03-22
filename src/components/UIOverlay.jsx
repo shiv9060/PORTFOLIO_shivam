@@ -259,7 +259,13 @@ const sections = [
               letterSpacing: '2px', transition: 'all 0.2s',
               backdropFilter: 'blur(10px)'
             }}
-            onClick={() => window.open(btn.href, '_blank', 'noopener,noreferrer')}
+            onClick={() => {
+              if (btn.href.startsWith('mailto:')) {
+                window.location.href = btn.href
+              } else {
+                window.open(btn.href, '_blank', 'noopener,noreferrer')
+              }
+            }}
             onMouseOver={(e) => e.currentTarget.style.background = `${btn.color}20`}
             onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0,20,40,0.7)'}
             >
